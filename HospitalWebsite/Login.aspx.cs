@@ -19,19 +19,15 @@ namespace HospitalWebsite
             int userId = 0;
             DBAccess dbObj = new DBAccess();
             userId = dbObj.AuthenticateUser(Login1.UserName, Login1.Password);
-            switch (userId)
+            if (userId == 0)
             {
-                case -1:
-                    Login1.FailureText = "Username and/or password is incorrect.";
-                    break;
-                case -2:
-                    Login1.FailureText = "Account has not been activated.";
-                    break;
-                default:
-                    FormsAuthentication.RedirectFromLoginPage(Login1.UserName, Login1.RememberMeSet);
-                    break;
-             }
-        
+                Login1.FailureText = "Username and/or password is incorrect.";
+            }
+            else
+            {
+                Session["UserId"] = userId;
+                FormsAuthentication.RedirectFromLoginPage(Login1.UserName, Login1.RememberMeSet);
+            }
         }
     }
 }

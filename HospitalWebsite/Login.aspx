@@ -9,7 +9,8 @@
 <body>
 
     <form id="form1" runat="server">
-        <asp:Login ID="Login1" runat="server" Height="168px" Width="355px" OnAuthenticate="AuthenticateUser">
+        <asp:Login ID="Login1" runat="server" Height="168px" Width="355px" OnAuthenticate="AuthenticateUser"
+            DestinationPageUrl="~/PatientAccountPage.aspx">
         </asp:Login>
     </form>
 

@@ -11,12 +11,21 @@ namespace HospitalWebsite
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if(Session["UserId"] == null)
+            {
+                LogoutButton.Visible = false;
+            }
+            else
+            {
+                LoginButton.Visible = false;
+                RegisterButton.Visible = false;
+            }
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
+        protected void SearchButton_Click(object sender, EventArgs e)
         {
-
+            Session["SearchString"] = SearchTextBox.Text;
+            Response.Redirect("./ShowDoctors.aspx");
         }
 
         protected void RegisterButton_Click(object sender, EventArgs e)
@@ -27,6 +36,12 @@ namespace HospitalWebsite
         protected void LoginButton_Click(object sender, EventArgs e)
         {
             Response.Redirect("./Login.aspx");
+        }
+
+        protected void LogoutButton_Click(object sender, EventArgs e)
+        {
+            Session["UserId"] = null;
+            Response.Redirect("./Home.aspx");
         }
     }
 }

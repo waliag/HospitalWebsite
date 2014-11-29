@@ -11,11 +11,14 @@
         <h3>Hospital Management System</h3>
         <p>
         <asp:TextBox ID="SearchTextBox" runat="server"></asp:TextBox>
-        <asp:Button ID="SearchButton" runat="server" OnClick="Button1_Click" Text="Search" />
+        <asp:Button ID="SearchButton" runat="server" OnClick="SearchButton_Click" Text="Search" />
         </p>
         <p>
             <asp:Button ID="LoginButton" runat="server" Text="Log in" OnClick="LoginButton_Click" />
             <asp:Button ID="RegisterButton" runat="server" OnClick="RegisterButton_Click" Text="Register" />
+            
+            <asp:Button ID="LogoutButton" runat="server" Text="Log Out" OnClick="LogoutButton_Click" />
+            
         </p>
    </form>
 </body>

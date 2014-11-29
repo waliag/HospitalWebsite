@@ -17,9 +17,15 @@ namespace HospitalWebsite
         protected void Create_Account(object sender, EventArgs e)
         {
             DBAccess dbObj = new DBAccess();
-            dbObj.CreateUserAccount(TxtName.Text, TxtEmail.Text, TxtPassword.Text);
-            
-            Response.Redirect("./AddDetails.aspx");
+            if (dbObj.CreateUserAccount(TxtName.Text, TxtEmail.Text, TxtPassword.Text) == false)
+            {
+                Response.Write("User Name already exists");
+            }
+            else
+            {
+                Response.Redirect("./AddDetails.aspx");
+            }
         }
+            
     }
 }
