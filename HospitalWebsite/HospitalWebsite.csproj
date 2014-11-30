@@ -39,7 +39,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="PresentationFramework" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -68,11 +67,11 @@
   <ItemGroup>
     <Content Include="AddDetails.aspx" />
     <Content Include="Appointment.aspx" />
-    <Content Include="DoctorAccountPage.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="PatientAccountPage.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="ShowDoctors.aspx" />
+    <Content Include="Success.aspx" />
     <Content Include="Web.config" />
     <Content Include="Home.aspx" />
   </ItemGroup>
@@ -91,15 +90,9 @@
     <Compile Include="Appointment.aspx.designer.cs">
       <DependentUpon>Appointment.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AppointmentDetails.cs" />
     <Compile Include="DBAccess.cs" />
     <Compile Include="Doctor.cs" />
-    <Compile Include="DoctorAccountPage.aspx.cs">
-      <DependentUpon>DoctorAccountPage.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="DoctorAccountPage.aspx.designer.cs">
-      <DependentUpon>DoctorAccountPage.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -135,6 +128,13 @@
     </Compile>
     <Compile Include="ShowDoctors.aspx.designer.cs">
       <DependentUpon>ShowDoctors.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Success.aspx.cs">
+      <DependentUpon>Success.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Success.aspx.designer.cs">
+      <DependentUpon>Success.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <PropertyGroup>

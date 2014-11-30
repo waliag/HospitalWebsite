@@ -7,11 +7,16 @@ using System.Web.UI.WebControls;
 
 namespace HospitalWebsite
 {
-    public partial class DoctorDetails : System.Web.UI.Page
+    public partial class Success : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            Response.Write("Appointment made successfully");
+        }
 
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("./Home.aspx");
         }
     }
 }

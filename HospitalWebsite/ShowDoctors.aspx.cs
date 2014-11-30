@@ -36,14 +36,14 @@ namespace HospitalWebsite
                 TableCell tCellButton = new TableCell();
                 tRow.Cells.Add(tCellButton);
                 var button = new Button();
-                button.Click += makeappointment;
+                button.Click += makeAppointment;
                 button.Text = "Make Appointment";
                 button.CommandArgument = doctor.userId.ToString();
                 tCellButton.Controls.Add(button);
             }
         }
 
-        private void makeappointment(object sender, EventArgs e)
+        private void makeAppointment(object sender, EventArgs e)
         {
             var button = (Button)sender;
             var doctorId = Convert.ToInt32(button.CommandArgument);

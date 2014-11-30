@@ -118,5 +118,29 @@ namespace HospitalWebsite
             connection.Close();
             return listSlots;
         }
+        public bool addAppointment(AppointmentDetails appointment)
+        {
+            string sql = "sp_AddAppointment";
+            SqlCommand command = new SqlCommand(sql, connection);
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.AddWithValue("@DoctorId", appointment.doctorId);
+            command.Parameters.AddWithValue("@PatientId", appointment.patientId);
+            command.Parameters.AddWithValue("@Date", appointment.date);
+            command.Parameters.AddWithValue("@Slot", appointment.Slot);
+
+            try
+            {
+                connection.Open();
+                int rowsaffected = command.ExecuteNonQuery();
+                if (rowsaffected == 0)
+                    return false;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            connection.Close();
+            return true;
+        }
     }
 }

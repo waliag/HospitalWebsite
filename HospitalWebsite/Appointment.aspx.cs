@@ -19,9 +19,15 @@ namespace HospitalWebsite
             {
                 Response.Redirect("./ShowDoctors.aspx");
             }
+            else if(Calendar1.SelectedDate.Date != DateTime.MinValue)
+            {
+                dateSelected(null, null);
+            }
         }
         public void dateSelected(Object sender, EventArgs e)
         {
+            SlotsTable.Rows.Clear();//clear old rows if present
+            
             DateTime date = Calendar1.SelectedDate.Date;
             TextDate.Text = date.ToString("d");
             DBAccess dbObj = new DBAccess();
@@ -32,6 +38,7 @@ namespace HospitalWebsite
             foreach (var slot in availableSlots)
             {
                 var available = !filledSlots.Contains(slot);
+                int i=1;
 
                 // Create a new row and add it to the table.
                 TableRow tRow = new TableRow();
@@ -44,7 +51,7 @@ namespace HospitalWebsite
                 TableCell tCellButton = new TableCell();
                 tRow.Cells.Add(tCellButton);
                 var button = new Button();
-                button.Click += selectappointment;
+                button.Click += selectAppointment;
                 button.Text = "Select";
                 button.CommandArgument = slot;
                 if (!available)
@@ -53,13 +60,25 @@ namespace HospitalWebsite
                     button.Text = "Not Available";
                 }
                 tCellButton.Controls.Add(button);
+                i++;
             }
 
         }
 
-        private void selectappointment(object sender, EventArgs e)
+        private void selectAppointment(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            var button = (Button)sender;
+            DBAccess dbObj = new DBAccess();
+            AppointmentDetails appointmentObj = new AppointmentDetails();
+            appointmentObj.doctorId = Convert.ToInt32(Session["DoctorId"]);
+            appointmentObj.patientId = Convert.ToInt32(Session["UserId"]);
+            appointmentObj.date = Calendar1.SelectedDate.Date;
+            appointmentObj.Slot = button.CommandArgument;
+
+            if (dbObj.addAppointment(appointmentObj) == true)
+            {
+                Response.Redirect("./Success.aspx");
+            }
         }
     }
 }
