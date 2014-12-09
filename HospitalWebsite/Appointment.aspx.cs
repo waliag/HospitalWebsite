@@ -97,7 +97,8 @@ namespace HospitalWebsite
 
                 message.Subject = "Appointment has been made.";
                 message.From = new System.Net.Mail.MailAddress("hospitalwebsitegsu@gmail.com");
-                message.Body = "Your appointment is on " + Convert.ToString(appointmentObj.date);
+                String appointmentDate = appointmentObj.date.Date.ToString("dd/MM/yyyy");
+                message.Body = "Your appointment is on " + appointmentDate;
                 smtpClient.Send(message);
 
                 Response.Redirect("./Success.aspx");
