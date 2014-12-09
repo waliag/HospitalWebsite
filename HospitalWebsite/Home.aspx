@@ -32,10 +32,9 @@
                     <nav>
                         <ul class="nav nav-pills pull-left">
                             <li role="presentation">
-                                <asp:TextBox ID="SearchTextBox" runat="server"></asp:TextBox></li>
+                                </li>
                             <li role="presentation">
-                                <asp:Button ID="SearchButton" runat="server" class="btn btn-primary" 
-                                     OnClick="SearchButton_Click" Text="Search" /></li>
+                                </li>
 
                         </ul>
                         <ul class="nav nav-pills pull-right">
@@ -55,6 +54,16 @@
                         </ul>
                     </nav>
                 </div>
+                <div class="row">
+                    <asp:TextBox ID="SearchTextBox" runat="server"></asp:TextBox>
+                    <asp:Button ID="SearchButton" runat="server" class="btn btn-primary" 
+                                     OnClick="SearchButton_Click" Text="Find Doctor" />
+                </div>
+                <p>
+                    Welcome to the HMS, you can search Doctors by name/specialization and book an appointment. 
+                    Please register to book an appointment, 
+                    and check confirmed appointments in the account page.
+                </p>
                 <div class="row">
                     <asp:Table ID="DoctorTable" runat="server" class="table table-bordered">
                     </asp:Table>
