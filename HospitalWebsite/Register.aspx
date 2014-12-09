@@ -5,24 +5,46 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>User Registration</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"/>
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css"/>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
     <style type="text/css">
+
 	input[type=text],input[type=password]
 	{
 		position: absolute;
-        left: 150px;
+        left: 200px;
 	}
     .errormesg
     {
         position: absolute;
-        left: 330px;
+        left: 400px;
         color: red;
     }
+    .auto-style1 {
+        font-size: large;
+     }
+
+    
     </style>
 </head>
 <body>
     <form id="form1" runat="server">
+        <div class="container">
     <div>
+        <br />
+        <br />
     <p>
+      <span class="auto-style1"><strong>REGISTRATION</strong></span></p>
+        <p>
+            Please enter you details below:</p>
+        <p>
             <asp:Label ID="LabelName" runat="server" Text="Name: "></asp:Label>
             <asp:TextBox ID="TxtName" runat="server"></asp:TextBox>
             <asp:RequiredFieldValidator runat="server" 
@@ -62,8 +84,10 @@
             <asp:CompareValidator ErrorMessage="Passwords do not match." CssClass="errormesg" ControlToCompare="TxtPassword"
                 ControlToValidate="TxtConfirmPassword" runat="server" />
         </p>
-        <asp:Button ID="CreateAccountButton" runat="server" OnClick="Create_Account" Text="Create Account"  Width="150px"/>
+        <br />
+          <asp:Button ID="CreateAccountButton" runat="server" OnClick="Create_Account" class="btn btn-primary" Text="Create Account"  Width="150px"/>
     </div>
+            </div>
     </form>
 </body>
 </html>

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mail;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -17,17 +18,21 @@ namespace HospitalWebsite
             }
             else if (Session["DoctorId"] == null)
             {
-                Response.Redirect("./ShowDoctors.aspx");
+                Response.Redirect("./Home.aspx");
             }
             else if(Calendar1.SelectedDate.Date != DateTime.MinValue)
             {
                 dateSelected(null, null);
             }
+            else
+            {
+                SlotsLabel.Visible = false;
+            }
         }
         public void dateSelected(Object sender, EventArgs e)
         {
             SlotsTable.Rows.Clear();//clear old rows if present
-            
+            SlotsLabel.Visible = true;
             DateTime date = Calendar1.SelectedDate.Date;
             TextDate.Text = date.ToString("d");
             DBAccess dbObj = new DBAccess();
@@ -53,6 +58,7 @@ namespace HospitalWebsite
                 var button = new Button();
                 button.Click += selectAppointment;
                 button.Text = "Select";
+                button.CssClass = "btn btn-success";
                 button.CommandArgument = slot;
                 if (!available)
                 {
@@ -77,6 +83,23 @@ namespace HospitalWebsite
 
             if (dbObj.addAppointment(appointmentObj) == true)
             {
+                SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
+
+                smtpClient.UseDefaultCredentials = false;
+                smtpClient.Credentials = new System.Net.NetworkCredential("hospitalwebsitegsu@gmail.com", "gsu@1234");
+                smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
+                smtpClient.EnableSsl = true;
+                MailMessage message = new MailMessage();
+
+                //Setting From , To and mail message
+                message.From = new MailAddress("hospitalwebsitegsu@gmail.com", "MyWeb Site");
+                message.To.Add(new MailAddress(Convert.ToString(Session["UserEmail"])));
+
+                message.Subject = "Appointment has been made.";
+                message.From = new System.Net.Mail.MailAddress("hospitalwebsitegsu@gmail.com");
+                message.Body = "Your appointment is on " + Convert.ToString(appointmentObj.date);
+                smtpClient.Send(message);
+
                 Response.Redirect("./Success.aspx");
             }
         }

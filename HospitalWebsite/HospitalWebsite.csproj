@@ -72,10 +72,13 @@
     <Content Include="Register.aspx" />
     <Content Include="ShowDoctors.aspx" />
     <Content Include="Success.aspx" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Home.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Account.cs" />
     <Compile Include="AddDetails.aspx.cs">
       <DependentUpon>AddDetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -100,6 +103,7 @@
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Patient.cs" />
     <Compile Include="PatientAccountPage.aspx.cs">
       <DependentUpon>PatientAccountPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

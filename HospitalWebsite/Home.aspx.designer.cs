@@ -40,13 +40,22 @@ namespace HospitalWebsite {
         protected global::System.Web.UI.WebControls.Button SearchButton;
         
         /// <summary>
-        /// LoginButton control.
+        /// MyAccountButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button LoginButton;
+        protected global::System.Web.UI.WebControls.Button MyAccountButton;
+        
+        /// <summary>
+        /// LogoutButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button LogoutButton;
         
         /// <summary>
         /// RegisterButton control.
@@ -58,12 +67,21 @@ namespace HospitalWebsite {
         protected global::System.Web.UI.WebControls.Button RegisterButton;
         
         /// <summary>
-        /// LogoutButton control.
+        /// LoginButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button LogoutButton;
+        protected global::System.Web.UI.WebControls.Button LoginButton;
+        
+        /// <summary>
+        /// DoctorTable control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Table DoctorTable;
     }
 }

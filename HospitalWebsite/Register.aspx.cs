@@ -19,13 +19,22 @@ namespace HospitalWebsite
             DBAccess dbObj = new DBAccess();
             if (dbObj.CreateUserAccount(TxtName.Text, TxtEmail.Text, TxtPassword.Text) == false)
             {
-                Response.Write("User Name already exists");
+                Response.Write("User already exists");
             }
             else
             {
-                Response.Redirect("./AddDetails.aspx");
+                Server.Transfer("./AddDetails.aspx");
             }
-        }
+        } 
+
+        public string LB1
+        {
+            get
+            {
+                return TxtName.Text;
+            }
+    }
+
             
     }
 }

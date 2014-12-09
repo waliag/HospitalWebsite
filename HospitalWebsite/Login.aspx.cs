@@ -16,18 +16,27 @@ namespace HospitalWebsite
         }
         protected void AuthenticateUser(object sender, EventArgs e)
         {
-            int userId = 0;
+            Account userDetails;
             DBAccess dbObj = new DBAccess();
-            userId = dbObj.AuthenticateUser(Login1.UserName, Login1.Password);
-            if (userId == 0)
+            userDetails = dbObj.AuthenticateUser(Login1.UserName, Login1.Password);
+            if (userDetails.userId == 0)
             {
                 Login1.FailureText = "Username and/or password is incorrect.";
             }
             else
             {
-                Session["UserId"] = userId;
+                Session["UserId"] = userDetails.userId;
+                Session["UserEmail"] = userDetails.email;
                 FormsAuthentication.RedirectFromLoginPage(Login1.UserName, Login1.RememberMeSet);
             }
         }
+		public int TB1
+        {
+            get
+            {
+                return Convert.ToInt32(Session["UserId"]);
+            }
+        }
+
     }
 }
