@@ -45,7 +45,7 @@
         <p>
             Please enter you details below:</p>
         <p>
-            <asp:Label ID="LabelName" runat="server" Text="Name: "></asp:Label>
+            <asp:Label ID="LabelName" runat="server" Text="Username: "></asp:Label>
             <asp:TextBox ID="TxtName" runat="server"></asp:TextBox>
             <asp:RequiredFieldValidator runat="server" 
                 ControlToValidate="TxtName"

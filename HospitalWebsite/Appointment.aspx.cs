@@ -70,7 +70,19 @@ namespace HospitalWebsite
             }
 
         }
+        public void Calendar1_DayRender(object o, DayRenderEventArgs e)
+        {
 
+
+            e.Cell.BackColor = System.Drawing.Color.Empty;
+            e.Cell.ForeColor = System.Drawing.Color.DarkRed;
+
+            //Previous days should be disabled
+            if (e.Day.Date < DateTime.Now.Date)
+            {
+                e.Day.IsSelectable = false;
+            }
+        }
         private void selectAppointment(object sender, EventArgs e)
         {
             var button = (Button)sender;

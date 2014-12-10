@@ -23,6 +23,10 @@ namespace HospitalWebsite
             {
                 Login1.FailureText = "Username and/or password is incorrect.";
             }
+            else if(userDetails.type=="Doctor")
+            {
+                Login1.FailureText = "Only supported for Patients";
+            }
             else
             {
                 Session["UserId"] = userDetails.userId;

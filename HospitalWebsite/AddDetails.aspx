@@ -44,11 +44,11 @@
                 <asp:Calendar ID="CdDOB" runat="server" OnSelectionChanged="Calendar1_SelectionChanged"></asp:Calendar>
                 <br />
                 <br />
-                Height(in cms):
+                Height(cms):
         <asp:TextBox ID="Tbheight" runat="server" CssClass="textfield"></asp:TextBox>
                 <br />
                 <br />
-                Weight:
+                Weight(lbs):
         <asp:TextBox ID="Tbweight" runat="server" CssClass="textfield"></asp:TextBox>
                 <br />
                 <br />

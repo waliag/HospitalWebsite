@@ -35,7 +35,8 @@
                 <asp:TextBox ID="TextDate" runat="server"></asp:TextBox>
                 <br />
                 <br />
-                <asp:Calendar ID="Calendar1" runat="server" DatePickerMode="true" TextBoxId="TextDate" OnSelectionChanged="dateSelected"></asp:Calendar>
+                <asp:Calendar ID="Calendar1" runat="server" DatePickerMode="true" TextBoxId="TextDate" OnDayRender="Calendar1_DayRender"
+                     OnSelectionChanged="dateSelected"></asp:Calendar>
                 <br />
                 <asp:Label ID="SlotsLabel" runat="server" Text="Choose Slot:"></asp:Label>
                 <br />
